@@ -8,7 +8,7 @@ async function queryApi() {
   const cardWrapper = document.querySelector(".card_wrapper");
   const numbersPerson = [1, 2, 3, 4, 5, 7, 8, 9, 10];
 
-  loader.style.display = "inline-block";
+  loader.style.display = "block";
 
   const res = await fetch(`${baseURL}${numbersPerson}`);
   const data = await res.json();
