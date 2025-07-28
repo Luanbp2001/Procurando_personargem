@@ -1,19 +1,24 @@
 const buttonSearch = document.getElementById("button_search");
 const baseURL = "https://rickandmortyapi.com/api/character/";
+const container = document.querySelector("container");
 
 //carrega os dados da api na página home
 async function queryApi() {
+  const loader = document.querySelector(".loader");
   const cardWrapper = document.querySelector(".card_wrapper");
   const numbersPerson = [1, 2, 3, 4, 5, 7, 8, 9, 10];
 
+  loader.style.display = "inline-block";
+
   const res = await fetch(`${baseURL}${numbersPerson}`);
   const data = await res.json();
+  loader.style.display = "none";
+  if (data) {
+    data.map((item) => {
+      const card = document.createElement("div");
+      card.classList.add("card", "swiper-slide");
 
-  data.map((item) => {
-    const card = document.createElement("div");
-    card.classList.add("card", "swiper-slide");
-
-    card.innerHTML = `
+      card.innerHTML = `
         <div class="image_content">
           <span class="overlay"></span>
           <div class="card_image">
@@ -30,8 +35,11 @@ async function queryApi() {
           </div>
         </div>
       `;
-    cardWrapper.appendChild(card);
-  });
+      cardWrapper.appendChild(card);
+    });
+  } else {
+    console.log("Erro");
+  }
 }
 
 //Filtrar personargem por nome
