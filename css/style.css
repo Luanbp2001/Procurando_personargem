@@ -25,6 +25,7 @@ h1 {
   font-size: 2.5rem;
 }
 .header .content_header {
+  height: 100%;
   display: flex;
   max-width: 1020px;
   justify-content: space-between;
@@ -179,17 +180,23 @@ footer > p {
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 570px) {
   .header .content_header {
     flex-direction: column;
     padding-bottom: 1rem;
     gap: 0.5rem;
   }
   .header {
-    max-height: 100px;
+    height: 13%;
   }
   .top_search input {
     width: 250px;
+  }
+  main {
+    height: 73%;
+  }
+  footer {
+    height: 14%;
   }
 }
 
