@@ -58,26 +58,47 @@ async function filerCharacter(name) {
 
 //manda o nome e recebe uma resposta
 const searchPerson = async () => {
+  const loader = document.querySelector(".loader");
   const input = document.querySelector(".input");
   const value = input.value;
+
+  loader.style.display = "block";
+  resultSearch.innerHTML = "";
   const result = await filerCharacter(value);
 
   const results = result.results;
 
+  loader.style.display = "none";
+  console.log(results);
   if (results === undefined) {
     return;
   }
   if (result !== "") {
-    const containerResult = document.createElement("div");
-    containerResult.classList.add("container_result");
     container.classList.add("hidden");
     resultSearch.classList.remove("hidden");
+    resultSearch.innerHTML = "";
     results.map((item) => {
-      container.innerHTML = `
-        <img src="${item.image}" alt="">
+      const containerResult = document.createElement("div");
+      containerResult.classList.add("container_result");
+      containerResult.innerHTML = `
+        <div class="image_content">
+          <span class="overlay"></span>
+          <div class="card_image">
+            <img
+              src="${item.image}"
+              alt="${item.name}"
+              class="card_img"
+            />
+          </div>
+          <div class="card_content">
+            <h2 class="name">${item.name}</h2>
+            <p class="description">${item.species} - ${item.status}</p>
+            <p class="description">${item.gender}</p>
+          </div>
+        </div>
       `;
+      resultSearch.appendChild(containerResult);
     });
-    resultSearch.appendChild(containerResult);
   }
 };
 
