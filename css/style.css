@@ -232,6 +232,9 @@ footer > p {
   main {
     height: 100%;
   }
+  #result_search {
+    padding-bottom: 2rem;
+  }
 }
 
 /* animações */
