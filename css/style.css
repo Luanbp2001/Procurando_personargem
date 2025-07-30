@@ -134,8 +134,7 @@ main {
 }
 .card_image {
   position: relative;
-  height: 15rem;
-  width: 15rem;
+
   border-radius: 50%;
   background: #fff;
   padding: 3px;
@@ -152,6 +151,10 @@ main {
   font-size: 18px;
   font-weight: 500;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }
 .description {
   font-size: 14px;
@@ -159,8 +162,12 @@ main {
 .swiper-navBtn {
   color: red;
 }
-.error {
-  color: red;
+
+#result_search {
+  height: 100%;
+}
+.hidden {
+  display: none;
 }
 footer {
   background: #cdcdcd93;

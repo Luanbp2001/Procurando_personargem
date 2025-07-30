@@ -1,20 +1,21 @@
 const buttonSearch = document.getElementById("button_search");
 const baseURL = "https://rickandmortyapi.com/api/character/";
-const container = document.querySelector("container");
+const container = document.querySelector(".container");
+const resultSearch = document.getElementById("result_search");
 
 //carrega os dados da api na página home
 async function queryApi() {
   const loader = document.querySelector(".loader");
   const cardWrapper = document.querySelector(".card_wrapper");
-  const numbersPerson = [1, 2, 3, 4, 5, 7, 8, 9, 10];
 
   loader.style.display = "block";
 
-  const res = await fetch(`${baseURL}${numbersPerson}`);
+  const res = await fetch(`${baseURL}`);
   const data = await res.json();
+  const results = data.results;
   loader.style.display = "none";
   if (data) {
-    data.map((item) => {
+    results.map((item) => {
       const card = document.createElement("div");
       card.classList.add("card", "swiper-slide");
 
@@ -44,7 +45,12 @@ async function queryApi() {
 
 //Filtrar personargem por nome
 async function filerCharacter(name) {
-  const res = await fetch(`${baseURL}?name=${name}`);
+  let nameValue = name;
+
+  if (nameValue === "") {
+    return;
+  }
+  const res = await fetch(`${baseURL}?name=${nameValue}`);
   const data = await res.json();
 
   return data;
@@ -54,9 +60,25 @@ async function filerCharacter(name) {
 const searchPerson = async () => {
   const input = document.querySelector(".input");
   const value = input.value;
-
   const result = await filerCharacter(value);
-  console.log(result.results);
+
+  const results = result.results;
+
+  if (results === undefined) {
+    return;
+  }
+  if (result !== "") {
+    const containerResult = document.createElement("div");
+    containerResult.classList.add("container_result");
+    container.classList.add("hidden");
+    resultSearch.classList.remove("hidden");
+    results.map((item) => {
+      container.innerHTML = `
+        <img src="${item.image}" alt="">
+      `;
+    });
+    resultSearch.appendChild(containerResult);
+  }
 };
 
 window.addEventListener("load", queryApi);
