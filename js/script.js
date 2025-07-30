@@ -60,15 +60,16 @@ async function filerCharacter(name) {
 const searchPerson = async () => {
   const loader = document.querySelector(".loader");
   const input = document.querySelector(".input");
-  const value = input.value;
+  let value = input.value;
 
   loader.style.display = "block";
   resultSearch.innerHTML = "";
   const result = await filerCharacter(value);
 
+  loader.style.display = "none";
+
   const results = result.results;
 
-  loader.style.display = "none";
   console.log(results);
   if (results === undefined) {
     return;
