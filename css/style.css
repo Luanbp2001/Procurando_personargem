@@ -37,6 +37,7 @@ a {
 }
 #notFound > h2 {
   font-weight: 200;
+  text-align: center;
 }
 .header .content_header {
   height: 100%;
