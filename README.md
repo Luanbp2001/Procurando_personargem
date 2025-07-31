@@ -12,12 +12,13 @@
 
 <p align="center">
     <img src="https://github.com/user-attachments/assets/9d9b0a7b-dbbc-4003-ac13-e3acc9b460be" alt="Image project" width="400px">
-    <img src="../.github/example.png" alt="Image Example" width="400px">
+    <img src="https://github.com/user-attachments/assets/ed0ca8c2-4120-43b7-8a29-6a4dddc7ea5d" alt="Image project mobile" height="350px" width="300px">
 </p>
 
-<h2 id="technologies">💻 Technologies</h2>
+<h2 id="technologies">💻 Tecnologias</h2>
 
-- list of all technologies you used
-- react
-- styled components
-- another example
+- Tecnologias utilizadas no projeto
+- HTML
+- CSS
+- JAVASCRIPT
+- SWIPER
