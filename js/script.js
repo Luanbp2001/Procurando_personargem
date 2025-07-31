@@ -18,7 +18,6 @@ async function queryApi() {
     results.map((item) => {
       const card = document.createElement("div");
       card.classList.add("card", "swiper-slide");
-
       card.innerHTML = `
         <div class="image_content">
           <span class="overlay"></span>
@@ -38,8 +37,6 @@ async function queryApi() {
       `;
       cardWrapper.appendChild(card);
     });
-  } else {
-    console.log("Erro");
   }
 }
 
@@ -47,17 +44,14 @@ async function queryApi() {
 async function filerCharacter(name) {
   let nameValue = name;
 
-  if (nameValue === "") {
-    return;
-  }
   const res = await fetch(`${baseURL}?name=${nameValue}`);
   const data = await res.json();
-
   return data;
 }
 
 //manda o nome e recebe uma resposta
 const searchPerson = async () => {
+  const notFound = document.getElementById("notFound");
   const loader = document.querySelector(".loader");
   const input = document.querySelector(".input");
   let value = input.value;
@@ -72,9 +66,10 @@ const searchPerson = async () => {
 
   console.log(results);
   if (results === undefined) {
-    return;
-  }
-  if (result !== "") {
+    notFound.style.display = "flex";
+  } else {
+    notFound.style.display = "none";
+    notFound.classList.add("hidden");
     container.classList.add("hidden");
     resultSearch.classList.remove("hidden");
     resultSearch.innerHTML = "";

@@ -30,7 +30,14 @@ a {
   text-decoration: none;
   font-size: 1.2rem;
 }
-
+#notFound {
+  display: none;
+  justify-content: center;
+  font-size: 2rem;
+}
+#notFound > h2 {
+  font-weight: 200;
+}
 .header .content_header {
   height: 100%;
   display: flex;
@@ -48,11 +55,13 @@ a {
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
   border-radius: 30px;
   align-items: center;
-  padding: 0.6rem;
+  padding: 1rem 0.8rem 1rem 0.8rem;
   text-align: center;
 }
 .top_search input {
   border: none;
+  color: #000000;
+  font-size: 1.4rem;
   background: transparent;
   outline: none;
   width: 0;
@@ -224,10 +233,10 @@ footer > p {
     gap: 0.5rem;
   }
   .header {
-    height: 13%;
+    height: 15%;
   }
   .top_search input {
-    width: 250px;
+    width: 300px;
   }
   main {
     height: 100%;
