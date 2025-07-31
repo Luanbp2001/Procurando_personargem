@@ -67,6 +67,7 @@ const searchPerson = async () => {
   console.log(results);
   if (results === undefined) {
     notFound.style.display = "flex";
+    container.style.display = "none";
   } else {
     notFound.style.display = "none";
     notFound.classList.add("hidden");
