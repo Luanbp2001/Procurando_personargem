@@ -1,4 +1,4 @@
-<h1 align="center" style="font-weight: bold;">Procurando_personargem 💻</h1>
+<h1 align="center" style="font-weight: bold;">Procurando_personagem 💻</h1>
 
 <p align="center">
     <b>Site criado para consumir a API Rick and Morty, para práticas utilizando fetch. Na página home é mostrado as informações, mas também há possibilidade de pesquisar seu personargem</b>
